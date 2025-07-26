@@ -1,0 +1,691 @@
+/* ------------------- */
+/* --- Variables y Reseteo --- */
+/* ------------------- */
+:root {
+    --primary-color: #20c997; /* Un verde menta fresco y moderno */
+    --secondary-color: #343a40; /* Un gris oscuro para texto, casi negro */
+    --light-gray: #f8f9fa; /* Un gris muy claro para fondos */
+    --white-color: #ffffff;
+    --border-color: #dee2e6;
+    --font-family: 'Poppins', sans-serif;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--secondary-color);
+    background-color: var(--white-color);
+    line-height: 1.6;
+    font-size: 16px; /* Base font size */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px; /* Add some horizontal padding */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.5em; /* Consistent bottom margin for headings */
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+p {
+    margin-bottom: 1em; /* Consistent bottom margin for paragraphs */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ------------------- */
+/* --- Header --- */
+/* ------------------- */
+.main-header {
+    background-color: var(--white-color);
+    padding: 1.2rem 0; /* Slightly more padding */
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-img {
+    height: 40px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem; /* Increased gap */
+}
+
+.main-nav a {
+    color: var(--secondary-color);
+    font-weight: 500; /* Slightly bolder */
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+.header-icons {
+    display: flex;
+    gap: 1.8rem; /* Increased gap */
+}
+
+.header-icons a {
+    font-size: 1.3rem; /* Slightly larger icons */
+    color: var(--secondary-color);
+}
+
+/* ------------------- */
+/* --- Botones --- */
+/* ------------------- */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2rem; /* Slightly more padding */
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 1rem; /* Consistent button font size */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.btn-primary:hover {
+    background-color: #1baa80;
+    color: var(--white-color);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}
+
+.btn-secondary:hover {
+    background-color: #23272b;
+    color: var(--white-color);
+}
+
+/* ------------------- */
+/* --- Secciones Principales --- */
+/* ------------------- */
+.hero {
+    background-color: var(--light-gray);
+    text-align: center;
+    padding: 7rem 0; /* More vertical padding */
+}
+
+.hero h2 {
+    font-size: 3.2rem; /* Slightly larger */
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.3rem; /* Slightly larger */
+    margin-bottom: 2.5rem; /* More space below */
+    color: #6c757d;
+}
+
+.featured-products {
+    padding: 5rem 0; /* More vertical padding */
+    text-align: center;
+}
+
+.featured-products h2 {
+    font-size: 2.8rem; /* Slightly larger */
+    margin-bottom: 3.5rem; /* More space below */
+}
+
+/* ------------------- */
+/* --- Product Grid --- */
+/* ------------------- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider cards */
+    gap: 2.5rem; /* Increased gap */
+}
+
+.product-card {
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    font-size: 1.3rem; /* Slightly larger */
+    margin: 1.2rem 1.5rem 0.3rem;
+}
+
+.product-card .product-category {
+    font-size: 0.95rem; /* Slightly larger */
+    color: #6c757d;
+    margin: 0 1.5rem;
+}
+
+.product-card .product-price {
+    font-size: 1.3rem; /* Slightly larger */
+    font-weight: 700; /* Bolder price */
+    color: var(--primary-color);
+    margin: 0.6rem 1.5rem;
+}
+
+.product-card .btn {
+    width: calc(100% - 3rem);
+    margin: 1rem 1.5rem 1.5rem;
+}
+
+/* ------------------- */
+/* --- Footer --- */
+/* ------------------- */
+.main-footer {
+    background-color: var(--secondary-color);
+    color: var(--light-gray);
+    padding: 3.5rem 0 0; /* More padding */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2.5rem; /* Increased gap */
+    padding-bottom: 2.5rem; /* More padding */
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 220px; /* Slightly wider min-width */
+}
+
+.footer-section h4 {
+    font-size: 1.3rem; /* Slightly larger */
+    margin-bottom: 1.2rem;
+    color: var(--white-color);
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.6rem; /* Slightly more spacing */
+}
+
+.footer-section a {
+    color: var(--light-gray);
+    font-size: 0.95rem; /* Consistent font size */
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.social-icons a {
+    font-size: 1.6rem; /* Slightly larger icons */
+    margin-right: 1.2rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1.8rem 0; /* More padding */
+    border-top: 1px solid #495057;
+    font-size: 0.9rem;
+}
+
+/* ------------------- */
+/* --- Logo --- */
+/* ------------------- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-img {
+    height: 40px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+
+/* ------------------- */
+/* --- Página de Productos --- */
+/* ------------------- */
+.products-header {
+    background-color: var(--light-gray);
+    text-align: center;
+    padding: 5rem 0; /* More vertical padding */
+}
+
+.products-header h2 {
+    font-size: 3rem; /* Slightly larger */
+    margin-bottom: 0.8rem;
+}
+
+.products-page .container {
+    display: flex;
+    gap: 2.5rem; /* Increased gap */
+    padding: 5rem 0; /* More vertical padding */
+}
+
+.filters {
+    width: 250px; /* Slightly wider filters */
+    flex-shrink: 0;
+}
+
+.filters h3 {
+    font-size: 1.6rem; /* Slightly larger */
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.filters ul {
+    list-style: none;
+}
+
+.filters ul li a {
+    display: block;
+    padding: 0.8rem 1.2rem; /* Slightly more padding */
+    border-radius: var(--border-radius);
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+}
+
+.filters ul li a:hover,
+.filters ul li a.active {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.product-grid-full {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Consistent with featured products */
+    gap: 2.5rem;
+}
+
+/* ------------------- */
+/* --- Info Boxes --- */
+/* ------------------- */
+.info-boxes {
+    background-color: var(--light-gray);
+    padding: 5rem 0; /* More vertical padding */
+}
+
+.info-boxes .container {
+    display: flex;
+    justify-content: space-around;
+    gap: 2.5rem; /* Increased gap */
+}
+
+.info-box {
+    text-align: center;
+    max-width: 320px; /* Slightly wider */
+}
+
+.info-box i {
+    font-size: 2.8rem; /* Slightly larger icons */
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+}
+
+.info-box h3 {
+    font-size: 1.6rem;
+}
+
+.info-box p {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* ------------------- */
+/* --- Product Details --- */
+/* ------------------- */
+.product-details-section {
+    padding: 5rem 0; /* More vertical padding */
+}
+
+.product-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem; /* Increased gap */
+    align-items: center;
+}
+
+.product-image-gallery img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.product-info h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.product-info .product-price {
+    font-size: 2rem; /* Larger price */
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.8rem;
+}
+
+.quantity-selector {
+    margin-bottom: 1.8rem;
+}
+
+.quantity-selector label {
+    margin-right: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.quantity-selector input {
+    width: 70px; /* Slightly wider input */
+    padding: 0.6rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+/* ------------------- */
+/* --- Contact Page --- */
+/* ------------------- */
+.contact-form {
+    background-color: var(--white-color);
+    padding: 3rem; /* More padding */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.8rem; /* More spacing */
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 1.05rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem; /* More padding */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(32, 201, 151, 0.2);
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 140px; /* Taller textarea */
+}
+
+.contact-form .btn-primary {
+    width: 100%;
+    padding: 1.2rem; /* More padding */
+    font-size: 1.2rem; /* Larger font size */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .main-nav ul {
+        gap: 1.5rem;
+    }
+
+    .header-icons {
+        gap: 1rem;
+    }
+
+    .hero h2 {
+        font-size: 2.8rem;
+    }
+
+    .featured-products h2 {
+        font-size: 2.4rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .info-boxes .container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .info-box {
+        max-width: 45%;
+    }
+
+    .product-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .products-page .container {
+        flex-direction: column;
+    }
+
+    .filters {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .header-icons {
+        margin-top: 1rem;
+    }
+
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .featured-products h2,
+    .products-header h2,
+    .product-details-section h2,
+    .contact-header h2 {
+        font-size: 2rem;
+    }
+
+    .info-box {
+        max-width: 80%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        min-width: unset;
+    }
+
+    .social-icons {
+        justify-content: center;
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .hero {
+        padding: 4rem 0;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .featured-products,
+    .products-header,
+    .products-page .container,
+    .product-details-section,
+    .contact-form-section {
+        padding: 3rem 0;
+    }
+
+    .product-grid,
+    .product-grid-full {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card .btn {
+        width: calc(100% - 2rem);
+        margin: 1rem 1rem 1rem;
+    }
+
+    .info-box {
+        max-width: 100%;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form .btn-primary {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
