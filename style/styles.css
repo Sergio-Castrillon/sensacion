@@ -497,22 +497,22 @@ img {
 }
 
 .contact-form .form-group {
-    margin-bottom: 1.8rem; /* More spacing */
+    margin-bottom: 1.5rem;
 }
 
 .contact-form label {
     display: block;
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.6rem;
     font-weight: 600;
     color: var(--secondary-color);
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form textarea {
     width: 100%;
-    padding: 1rem; /* More padding */
+    padding: 0.9rem 1.2rem;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     font-family: var(--font-family);
@@ -530,13 +530,24 @@ img {
 
 .contact-form textarea {
     resize: vertical;
-    min-height: 140px; /* Taller textarea */
+    min-height: 120px;
 }
 
-.contact-form .btn-primary {
+.contact-form button[type="submit"] {
     width: 100%;
-    padding: 1.2rem; /* More padding */
-    font-size: 1.2rem; /* Larger font size */
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #1baa80;
+    transform: translateY(-2px);
 }
 
 /* Responsive adjustments */
