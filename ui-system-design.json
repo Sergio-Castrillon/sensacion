@@ -1,0 +1,467 @@
+{
+  "ui_system_design": {
+    "project": "Sensación E-commerce UI",
+    "version": "1.0.0",
+    "design_system": "Component-based architecture"
+  },
+  "design_tokens": {
+    "colors": {
+      "primary": {
+        "50": "#f0fdfa",
+        "100": "#ccfbf1", 
+        "200": "#99f6e4",
+        "300": "#5eead4",
+        "400": "#2dd4bf",
+        "500": "#20c997",
+        "600": "#0d9488",
+        "700": "#0f766e",
+        "800": "#115e59",
+        "900": "#134e4a"
+      },
+      "secondary": {
+        "50": "#f8fafc",
+        "100": "#f1f5f9",
+        "200": "#e2e8f0",
+        "300": "#cbd5e1",
+        "400": "#94a3b8",
+        "500": "#64748b",
+        "600": "#475569",
+        "700": "#334155",
+        "800": "#1e293b",
+        "900": "#0f172a"
+      },
+      "accent": {
+        "pink": "#ec4899",
+        "purple": "#8b5cf6",
+        "blue": "#3b82f6"
+      },
+      "semantic": {
+        "success": "#10b981",
+        "warning": "#f59e0b", 
+        "error": "#ef4444",
+        "info": "#3b82f6"
+      },
+      "neutral": {
+        "white": "#ffffff",
+        "gray-50": "#f9fafb",
+        "gray-100": "#f3f4f6",
+        "gray-200": "#e5e7eb",
+        "gray-300": "#d1d5db",
+        "gray-400": "#9ca3af",
+        "gray-500": "#6b7280",
+        "gray-600": "#4b5563",
+        "gray-700": "#374151",
+        "gray-800": "#1f2937",
+        "gray-900": "#111827",
+        "black": "#000000"
+      }
+    },
+    "typography": {
+      "font_family": {
+        "primary": "'Poppins', sans-serif",
+        "secondary": "'Inter', sans-serif",
+        "mono": "'JetBrains Mono', monospace"
+      },
+      "font_weights": {
+        "light": 300,
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      },
+      "font_sizes": {
+        "xs": "0.75rem",
+        "sm": "0.875rem", 
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
+        "5xl": "3rem",
+        "6xl": "3.75rem"
+      },
+      "line_heights": {
+        "tight": 1.25,
+        "normal": 1.5,
+        "relaxed": 1.75
+      }
+    },
+    "spacing": {
+      "0": "0",
+      "1": "0.25rem",
+      "2": "0.5rem", 
+      "3": "0.75rem",
+      "4": "1rem",
+      "5": "1.25rem",
+      "6": "1.5rem",
+      "8": "2rem",
+      "10": "2.5rem",
+      "12": "3rem",
+      "16": "4rem",
+      "20": "5rem",
+      "24": "6rem",
+      "32": "8rem"
+    },
+    "border_radius": {
+      "none": "0",
+      "sm": "0.25rem",
+      "md": "0.375rem",
+      "lg": "0.5rem",
+      "xl": "0.75rem",
+      "2xl": "1rem",
+      "full": "9999px"
+    },
+    "shadows": {
+      "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      "md": "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+      "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+      "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
+      "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+    },
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px", 
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": {
+        "base": "inline-flex items-center justify-center rounded-lg font-medium transition-colors focus:outline-none focus:ring-2",
+        "variants": {
+          "default": "bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500",
+          "outline": "border border-primary-500 text-primary-500 hover:bg-primary-50 focus:ring-primary-500",
+          "ghost": "text-primary-500 hover:bg-primary-50 focus:ring-primary-500"
+        },
+        "sizes": {
+          "sm": "px-3 py-2 text-sm",
+          "md": "px-4 py-2 text-base",
+          "lg": "px-6 py-3 text-lg"
+        },
+        "states": {
+          "disabled": "opacity-50 cursor-not-allowed",
+          "loading": "opacity-75 cursor-wait"
+        }
+      },
+      "secondary": {
+        "base": "inline-flex items-center justify-center rounded-lg font-medium transition-colors focus:outline-none focus:ring-2",
+        "variants": {
+          "default": "bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500",
+          "outline": "border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-gray-500"
+        }
+      }
+    },
+    "cards": {
+      "product_card": {
+        "base": "bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-105",
+        "image_container": "aspect-square overflow-hidden",
+        "image": "w-full h-full object-cover",
+        "content": "p-4",
+        "title": "font-semibold text-gray-900 mb-2",
+        "category": "text-sm text-gray-500 mb-1",
+        "price": "text-lg font-bold text-primary-600",
+        "button_container": "mt-4"
+      },
+      "info_card": {
+        "base": "bg-white rounded-lg p-6 text-center shadow-sm border border-gray-100",
+        "icon": "text-4xl text-primary-500 mb-4",
+        "title": "font-semibold text-gray-900 mb-2",
+        "description": "text-gray-600"
+      }
+    },
+    "forms": {
+      "input": {
+        "base": "block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500",
+        "variants": {
+          "default": "",
+          "error": "border-red-500 focus:border-red-500 focus:ring-red-500",
+          "success": "border-green-500 focus:border-green-500 focus:ring-green-500"
+        },
+        "sizes": {
+          "sm": "px-2 py-1 text-sm",
+          "md": "px-3 py-2",
+          "lg": "px-4 py-3 text-lg"
+        }
+      },
+      "label": {
+        "base": "block text-sm font-medium text-gray-700 mb-1"
+      },
+      "select": {
+        "base": "block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500"
+      },
+      "textarea": {
+        "base": "block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 resize-vertical"
+      }
+    },
+    "navigation": {
+      "header": {
+        "base": "bg-white shadow-sm border-b border-gray-200",
+        "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+        "content": "flex items-center justify-between h-16",
+        "logo": "flex items-center space-x-2",
+        "nav_links": "hidden md:flex space-x-8",
+        "icons": "flex items-center space-x-4"
+      },
+      "breadcrumb": {
+        "base": "flex items-center space-x-2 text-sm text-gray-500",
+        "separator": "text-gray-300",
+        "active": "text-gray-900 font-medium"
+      },
+      "pagination": {
+        "base": "flex items-center justify-between",
+        "button": "px-3 py-2 text-sm font-medium rounded-md",
+        "active": "bg-primary-600 text-white",
+        "inactive": "text-gray-500 hover:text-gray-700"
+      }
+    },
+    "feedback": {
+      "alert": {
+        "base": "rounded-lg p-4 border",
+        "variants": {
+          "success": "bg-green-50 border-green-200 text-green-800",
+          "warning": "bg-yellow-50 border-yellow-200 text-yellow-800",
+          "error": "bg-red-50 border-red-200 text-red-800",
+          "info": "bg-blue-50 border-blue-200 text-blue-800"
+        }
+      },
+      "badge": {
+        "base": "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium",
+        "variants": {
+          "primary": "bg-primary-100 text-primary-800",
+          "secondary": "bg-gray-100 text-gray-800",
+          "success": "bg-green-100 text-green-800",
+          "warning": "bg-yellow-100 text-yellow-800",
+          "error": "bg-red-100 text-red-800"
+        }
+      },
+      "loading": {
+        "spinner": "animate-spin rounded-full border-2 border-gray-300 border-t-primary-600",
+        "skeleton": "animate-pulse bg-gray-300 rounded"
+      }
+    },
+    "modals": {
+      "overlay": "fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity",
+      "container": "fixed inset-0 z-50 overflow-y-auto",
+      "content": "flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0",
+      "panel": "relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg"
+    }
+  },
+  "layouts": {
+    "page_structure": {
+      "header": {
+        "height": "64px",
+        "z_index": 50,
+        "components": ["logo", "navigation", "search_bar", "user_menu", "cart_icon"]
+      },
+      "main": {
+        "min_height": "calc(100vh - 64px - 200px)",
+        "padding": "container padding"
+      },
+      "footer": {
+        "height": "200px",
+        "background": "gray-900",
+        "text_color": "white"
+      }
+    },
+    "grid_system": {
+      "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+      "product_grid": {
+        "mobile": "grid-cols-2 gap-4",
+        "tablet": "grid-cols-3 gap-6", 
+        "desktop": "grid-cols-4 gap-8"
+      },
+      "checkout_layout": {
+        "mobile": "grid-cols-1",
+        "desktop": "grid-cols-3 gap-8"
+      }
+    }
+  },
+  "pages": {
+    "homepage": {
+      "sections": [
+        {
+          "name": "hero",
+          "components": ["hero_banner", "cta_button"],
+          "layout": "full_width"
+        },
+        {
+          "name": "features", 
+          "components": ["feature_cards"],
+          "layout": "three_column_grid"
+        },
+        {
+          "name": "featured_products",
+          "components": ["product_cards", "view_all_button"],
+          "layout": "four_column_grid"
+        }
+      ]
+    },
+    "product_listing": {
+      "layout": "sidebar_main",
+      "sidebar": {
+        "width": "280px",
+        "components": ["category_filter", "price_filter", "brand_filter", "rating_filter"]
+      },
+      "main": {
+        "components": ["sort_dropdown", "product_grid", "pagination"]
+      }
+    },
+    "product_detail": {
+      "layout": "two_column",
+      "left_column": {
+        "components": ["product_gallery", "thumbnail_navigation"]
+      },
+      "right_column": {
+        "components": ["product_info", "price_display", "variant_selector", "quantity_selector", "add_to_cart", "product_tabs"]
+      }
+    },
+    "shopping_cart": {
+      "layout": "two_column",
+      "left_column": {
+        "components": ["cart_items", "coupon_form"]
+      },
+      "right_column": {
+        "components": ["order_summary", "checkout_button"]
+      }
+    },
+    "checkout": {
+      "layout": "three_column",
+      "steps": ["shipping_info", "payment_method", "order_review"],
+      "progress_indicator": "step_progress_bar"
+    },
+    "user_account": {
+      "layout": "sidebar_main",
+      "sidebar": {
+        "components": ["account_menu"]
+      },
+      "main": {
+        "tabs": ["profile", "orders", "addresses", "wishlist"]
+      }
+    },
+    "admin_panel": {
+      "layout": "sidebar_main",
+      "sidebar": {
+        "components": ["admin_navigation"]
+      },
+      "main": {
+        "sections": ["dashboard", "products", "orders", "customers", "reports"]
+      }
+    }
+  },
+  "interactions": {
+    "animations": {
+      "transitions": {
+        "duration": "300ms",
+        "easing": "ease-in-out"
+      },
+      "hover_effects": {
+        "cards": "scale-105 shadow-lg",
+        "buttons": "brightness-110",
+        "images": "scale-110"
+      },
+      "loading_states": {
+        "skeleton": "pulse animation",
+        "spinner": "rotate animation",
+        "progress_bar": "width transition"
+      }
+    },
+    "gestures": {
+      "mobile": {
+        "swipe": "product gallery navigation",
+        "pull_to_refresh": "product listings",
+        "infinite_scroll": "product lists"
+      }
+    },
+    "micro_interactions": {
+      "add_to_cart": "button state change + notification",
+      "like_product": "heart icon animation",
+      "quantity_change": "number transition",
+      "form_validation": "real-time feedback"
+    }
+  },
+  "responsive_behavior": {
+    "mobile_first": true,
+    "breakpoint_strategy": {
+      "mobile": {
+        "max_width": "767px",
+        "navigation": "hamburger_menu",
+        "grid": "single_column",
+        "product_cards": "2_per_row"
+      },
+      "tablet": {
+        "min_width": "768px",
+        "max_width": "1023px", 
+        "navigation": "condensed_menu",
+        "grid": "two_three_columns",
+        "product_cards": "3_per_row"
+      },
+      "desktop": {
+        "min_width": "1024px",
+        "navigation": "full_menu",
+        "grid": "multi_column",
+        "product_cards": "4_per_row"
+      }
+    }
+  },
+  "accessibility": {
+    "wcag_compliance": "AA level",
+    "keyboard_navigation": "full support",
+    "screen_readers": "aria labels and descriptions",
+    "color_contrast": "4.5:1 minimum ratio",
+    "focus_indicators": "visible focus rings",
+    "semantic_html": "proper heading hierarchy"
+  },
+  "performance": {
+    "optimization": {
+      "images": "lazy loading + WebP format",
+      "css": "critical CSS inline",
+      "javascript": "code splitting",
+      "fonts": "preload critical fonts"
+    },
+    "metrics": {
+      "first_contentful_paint": "< 1.5s",
+      "largest_contentful_paint": "< 2.5s",
+      "cumulative_layout_shift": "< 0.1"
+    }
+  },
+  "state_management": {
+    "cart_state": {
+      "store": "localStorage + Zustand",
+      "sync": "with backend on login",
+      "persistence": "30 days"
+    },
+    "user_preferences": {
+      "theme": "localStorage",
+      "language": "localStorage", 
+      "filters": "sessionStorage"
+    },
+    "form_state": {
+      "validation": "real-time with Joi",
+      "persistence": "draft save",
+      "error_handling": "field-level errors"
+    }
+  },
+  "implementation_priority": {
+    "phase_1": [
+      "Design tokens setup",
+      "Core components (Button, Input, Card)",
+      "Layout system",
+      "Homepage components"
+    ],
+    "phase_2": [
+      "Product listing page",
+      "Product detail page", 
+      "Shopping cart",
+      "Mobile responsiveness"
+    ],
+    "phase_3": [
+      "Checkout flow",
+      "User account pages",
+      "Admin panel",
+      "Performance optimization"
+    ]
+  }
+}
