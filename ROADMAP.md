@@ -304,24 +304,45 @@ GET /api/v1/shipping/track/:trackingNumber - Rastreo
 
 ### **DÍA 7: TESTING Y DEPLOYMENT (16 horas)**
 
-#### Mañana (8h): Testing y QA
+#### Mañana (8h): Testing Completo y QA
 ```bash
-# 1. Testing completo (4h)
-# Unit tests con Jest
-# Integration tests con Supertest
-# E2E tests con Playwright
+# 1. Unit Testing (2h)
+npm install --save-dev jest supertest
+# Tests críticos:
+# - Validación de productos y precios
+# - Cálculo de carrito y totales
+# - Funciones de inventario
+# - Validaciones de usuario
+# Target: 60%+ coverage en funciones críticas
 
-# 2. Testing de pagos (4h)
-# Modo sandbox MercadoPago
-# Testing Nequi en desarrollo
-# Flujo completo de compra
+# 2. Integration Testing (3h)
+# - APIs de autenticación (registro, login, logout)
+# - CRUD de productos completo
+# - Flujo de carrito (agregar, actualizar, eliminar)
+# - Cálculo de envíos con APIs reales
+# - Webhooks de pagos (mocks)
+
+# 3. E2E Testing (2h)
+npm install --save-dev @playwright/test
+# - Flujo completo de compra (usuario anónimo)
+# - Registro de usuario y compra
+# - Proceso de checkout hasta pago
+# - Recuperación de contraseña
+
+# 4. Testing de Pagos (1h)
+# - MercadoPago sandbox: tarjetas de prueba
+# - Nequi desarrollo: simulación de notificaciones
+# - Webhooks con ngrok local
 ```
 
 **Entregables:**
-- [x] Test suite completo
-- [x] Testing de integración
-- [x] Flujo de compra validado
-- [x] Testing de pagos en sandbox
+- [x] Unit tests con 60%+ coverage
+- [x] Integration tests para APIs críticas
+- [x] E2E tests para flujo completo de compra
+- [x] Testing de pagos en sandbox validado
+- [x] Tests automatizados en pipeline CI/CD
+
+**📝 Nota:** La estrategia de testing detallada se definirá una vez tengamos la estructura de código del backend establecida (Día 1-2). Los ejemplos específicos de tests se documentarán durante la implementación.
 
 #### Tarde (8h): Deployment y Go-Live
 ```bash

@@ -14,8 +14,8 @@ CREATE TABLE users (
     last_name VARCHAR(100) NOT NULL,
     phone VARCHAR(20),
     birth_date DATE,
-    gender ENUM('M', 'F', 'Other'),
-    role ENUM('customer', 'admin', 'staff') DEFAULT 'customer',
+    gender VARCHAR(20) CHECK (gender IN ('male', 'female', 'non-binary', 'prefer-not-to-say', 'other')),
+    role VARCHAR(20) CHECK (role IN ('customer', 'admin', 'staff')) DEFAULT 'customer',
     email_verified BOOLEAN DEFAULT FALSE,
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -33,7 +33,7 @@ CREATE TABLE user_addresses (
     postal_code VARCHAR(20) NOT NULL,
     country VARCHAR(100) DEFAULT 'Colombia',
     is_default BOOLEAN DEFAULT FALSE,
-    address_type ENUM('home', 'work', 'other') DEFAULT 'home',
+    address_type VARCHAR(20) CHECK (address_type IN ('home', 'work', 'other')) DEFAULT 'home',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -42,7 +42,7 @@ CREATE TABLE user_tokens (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
     token VARCHAR(255) NOT NULL,
-    token_type ENUM('email_verification', 'password_reset') NOT NULL,
+    token_type VARCHAR(30) CHECK (token_type IN ('email_verification', 'password_reset')) NOT NULL,
     expires_at TIMESTAMP NOT NULL,
     used_at TIMESTAMP NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -107,7 +107,7 @@ CREATE TABLE products (
     meta_description TEXT,
     
     -- Estado
-    status ENUM('draft', 'active', 'inactive', 'archived') DEFAULT 'draft',
+    status VARCHAR(20) CHECK (status IN ('draft', 'active', 'inactive', 'archived')) DEFAULT 'draft',
     is_featured BOOLEAN DEFAULT FALSE,
     
     -- Timestamps
@@ -182,7 +182,7 @@ CREATE TABLE inventory_movements (
     id SERIAL PRIMARY KEY,
     product_id INTEGER REFERENCES products(id),
     variant_id INTEGER REFERENCES product_variants(id),
-    movement_type ENUM('purchase', 'sale', 'adjustment', 'return', 'damage') NOT NULL,
+    movement_type VARCHAR(20) CHECK (movement_type IN ('purchase', 'sale', 'adjustment', 'return', 'damage')) NOT NULL,
     quantity_change INTEGER NOT NULL, -- Positivo entrada, negativo salida
     quantity_before INTEGER NOT NULL,
     quantity_after INTEGER NOT NULL,
@@ -264,9 +264,9 @@ CREATE TABLE orders (
     total_amount DECIMAL(10,2) NOT NULL,
     
     -- Estado y timestamps
-    status ENUM('pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled', 'refunded') DEFAULT 'pending',
-    payment_status ENUM('pending', 'paid', 'failed', 'refunded', 'partially_refunded') DEFAULT 'pending',
-    fulfillment_status ENUM('pending', 'processing', 'shipped', 'delivered', 'cancelled') DEFAULT 'pending',
+    status VARCHAR(20) CHECK (status IN ('pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled', 'refunded')) DEFAULT 'pending',
+    payment_status VARCHAR(30) CHECK (payment_status IN ('pending', 'paid', 'failed', 'refunded', 'partially_refunded')) DEFAULT 'pending',
+    fulfillment_status VARCHAR(20) CHECK (fulfillment_status IN ('pending', 'processing', 'shipped', 'delivered', 'cancelled')) DEFAULT 'pending',
     
     -- Metadatos
     notes TEXT,
@@ -310,15 +310,15 @@ CREATE TABLE payments (
     -- Detalles del pago
     amount DECIMAL(10,2) NOT NULL,
     currency VARCHAR(3) DEFAULT 'COP',
-    payment_method ENUM('credit_card', 'debit_card', 'pse', 'nequi', 'cash', 'bank_transfer') NOT NULL,
+    payment_method VARCHAR(20) CHECK (payment_method IN ('credit_card', 'debit_card', 'pse', 'nequi', 'cash', 'bank_transfer')) NOT NULL,
     
     -- Información del procesador
-    processor ENUM('mercadopago', 'nequi', 'manual') NOT NULL,
+    processor VARCHAR(20) CHECK (processor IN ('mercadopago', 'nequi', 'manual')) NOT NULL,
     processor_transaction_id VARCHAR(255),
     processor_reference VARCHAR(255),
     
     -- Estados
-    status ENUM('pending', 'processing', 'completed', 'failed', 'cancelled', 'refunded') DEFAULT 'pending',
+    status VARCHAR(20) CHECK (status IN ('pending', 'processing', 'completed', 'failed', 'cancelled', 'refunded')) DEFAULT 'pending',
     
     -- Metadatos
     processor_response JSON,
@@ -342,7 +342,7 @@ CREATE TABLE refunds (
     
     amount DECIMAL(10,2) NOT NULL,
     reason TEXT,
-    status ENUM('pending', 'completed', 'failed') DEFAULT 'pending',
+    status VARCHAR(20) CHECK (status IN ('pending', 'completed', 'failed')) DEFAULT 'pending',
     
     processor_refund_id VARCHAR(255),
     processor_response JSON,
@@ -419,7 +419,7 @@ CREATE TABLE shipments (
     shipping_cost DECIMAL(10,2) NOT NULL,
     weight DECIMAL(8,2),
     
-    status ENUM('pending', 'processing', 'shipped', 'in_transit', 'delivered', 'failed', 'returned') DEFAULT 'pending',
+    status VARCHAR(20) CHECK (status IN ('pending', 'processing', 'shipped', 'in_transit', 'delivered', 'failed', 'returned')) DEFAULT 'pending',
     
     -- Metadatos de la transportadora
     carrier_response JSON,
@@ -443,7 +443,7 @@ CREATE TABLE coupons (
     description TEXT,
     
     -- Tipo de descuento
-    discount_type ENUM('percentage', 'fixed_amount', 'free_shipping') NOT NULL,
+    discount_type VARCHAR(20) CHECK (discount_type IN ('percentage', 'fixed_amount', 'free_shipping')) NOT NULL,
     discount_value DECIMAL(10,2) NOT NULL,
     
     -- Restricciones
@@ -503,12 +503,13 @@ CREATE TABLE product_reviews (
 ### 10. CONFIGURACIÓN DEL SISTEMA
 
 ```sql
+
 -- Configuraciones generales
 CREATE TABLE settings (
     id SERIAL PRIMARY KEY,
     setting_key VARCHAR(100) UNIQUE NOT NULL,
     setting_value TEXT,
-    setting_type ENUM('string', 'number', 'boolean', 'json') DEFAULT 'string',
+    setting_type VARCHAR(20) CHECK (setting_type IN ('string', 'number', 'boolean', 'json')) DEFAULT 'string',
     description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -550,4 +551,85 @@ CREATE FULLTEXT INDEX idx_products_search ON products(name, description, short_d
 CREATE FULLTEXT INDEX idx_categories_search ON categories(name, description);
 ```
 
-¿Te parece bien este diseño? ¿Quieres que ajustemos algo específico antes de pasar al siguiente paso?
+## 🔒 SEGURIDAD BÁSICA PARA MVP
+
+### Consideraciones de Seguridad Esenciales
+
+#### 1. Contraseñas y Autenticación
+```javascript
+// En el backend Node.js - NO en la base de datos
+const bcrypt = require('bcryptjs');
+
+// Política simple de contraseñas
+const PASSWORD_REQUIREMENTS = {
+  minLength: 8,
+  requireNumbers: true,
+  requireUppercase: true,
+  // Validar en el backend con Joi
+};
+
+// Hash seguro de contraseñas
+const saltRounds = 12;
+const hashedPassword = await bcrypt.hash(password, saltRounds);
+```
+
+#### 2. Validaciones Críticas en BD
+```sql
+-- Prevenir stock negativo
+ALTER TABLE inventory ADD CONSTRAINT check_positive_stock 
+CHECK (quantity >= 0 AND reserved_quantity >= 0);
+
+-- Evitar precios negativos
+ALTER TABLE products ADD CONSTRAINT check_positive_price 
+CHECK (price >= 0);
+
+-- Validar emails básico
+ALTER TABLE users ADD CONSTRAINT check_email_format 
+CHECK (email ~ '^[^@]+@[^@]+\.[^@]+$');
+```
+
+#### 3. Variables de Entorno (Producción)
+```bash
+# Básicas y suficientes para MVP
+JWT_SECRET=your-super-secret-jwt-key-min-32-chars
+DATABASE_URL=postgresql://user:pass@host:5432/dbname?sslmode=require
+BCRYPT_ROUNDS=12
+
+# APIs
+MERCADOPAGO_ACCESS_TOKEN=your-mp-token
+NEQUI_API_KEY=your-nequi-key
+CLOUDINARY_URL=cloudinary://api_key:api_secret@cloud_name
+```
+
+#### 4. Headers de Seguridad (Express.js)
+```javascript
+// Usar helmet.js - simple y efectivo
+const helmet = require('helmet');
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"], // Solo para desarrollo
+      imgSrc: ["'self'", "data:", "https://res.cloudinary.com"]
+    }
+  }
+}));
+```
+
+### Lo que NO implementamos en MVP
+
+❌ **Encriptación compleja de BD** - HTTPS + bcrypt es suficiente  
+❌ **Auditoría detallada** - Logs básicos de Express  
+❌ **Row Level Security** - Validación en backend  
+❌ **Políticas de retención GDPR** - Para versión 2.0  
+
+### Lo que SÍ es crítico para MVP
+
+✅ **HTTPS obligatorio** en producción  
+✅ **Bcrypt para contraseñas** (salt rounds 12+)  
+✅ **JWT con secret fuerte** (32+ caracteres)  
+✅ **Validación de inputs** con Joi  
+✅ **Rate limiting** para login y APIs  
+✅ **Headers seguros** con Helmet  
+
+¿Te parece mejor este enfoque simplificado para el MVP?
