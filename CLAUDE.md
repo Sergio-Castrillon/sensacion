@@ -164,3 +164,11 @@ This project uses **context7 MCP** for accessing real-time documentation. Use th
 - `/context7 mercadopago nodejs integration colombia 2024`
 - `/context7 react shopping cart component best practices`
 - `/context7 nodejs authentication jwt security 2024`
+
+## Important Conventions
+
+### Git Commits and Documentation
+- **NEVER include references to Claude, AI, or automated tools** in commit messages, PRs, or code comments
+- Keep all commits professional and focused on the technical changes
+- Use conventional commit format when possible (feat:, fix:, docs:, etc.)
+- Write commit messages as if created by a human developer
