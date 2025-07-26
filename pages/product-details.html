@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto - Sensación</title>
+    <meta name="description" content="Información detallada de nuestros productos.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../style/styles.css">
+    
+    <link rel="icon" href="../images/logo-sensacion.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo-sensacion-64x64.png" alt="Logo Sensación" class="logo-img">
+                <h1>Sensación</h1>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="products.html">Productos</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#" aria-label="Buscar"><i class="fas fa-search"></i></a>
+                <a href="#" aria-label="Cuenta de usuario"><i class="fas fa-user"></i></a>
+                <a href="#" aria-label="Carrito de compras"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-details-section">
+            <div class="container">
+                <div class="product-details-grid">
+                    <div class="product-image-gallery">
+                        <img src="https://placehold.co/500x500/20c997/FFFFFF/png" alt="Producto" id="main-product-image">
+                    </div>
+                    <div class="product-info">
+                        <h2 id="product-name">Nombre del Producto</h2>
+                        <p class="product-price" id="product-price">$0</p>
+                        <p id="product-description">Descripción detallada del producto...</p>
+                        <div class="quantity-selector">
+                            <label for="quantity">Cantidad:</label>
+                            <input type="number" id="quantity" name="quantity" value="1" min="1">
+                        </div>
+                        <button class="btn btn-primary add-to-cart-btn">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="../index.html" class="logo">
+                        <img src="../images/logo-sensacion-64x64.png" alt="Logo Sensación" class="logo-img">
+                        <h4>Sensación</h4>
+                    </a>
+                    <p>Cuidado personal premium para todos.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="products.html">Productos</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sensación. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/product-details.js"></script>
+</body>
+</html>

@@ -1,25 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensación - Cuidado Personal Premium</title>
+    <meta name="description" content="Tu tienda en línea para productos de cuidado personal. Lociones, cremas y desodorantes para hombre y mujer.">
+    
+    <!-- Google Fonts: Poppins para un look moderno y limpio -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Nuestra hoja de estilos -->
     <link rel="stylesheet" href="style/styles.css">
-    <link rel="shortcut icon" href="images/logo-sensacion.ico" type="image/x-icon">
-    <title>Sensación</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo-sensacion.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <h1>Sensacion</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-sensacion-64x64.png" alt="Logo Sensación" class="logo-img">
+                <h1>Sensación</h1>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="pages/products.html">Productos</a></li>
+                    <li><a href="pages/contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#" aria-label="Buscar"><i class="fas fa-search"></i></a>
+                <a href="#" aria-label="Cuenta de usuario"><i class="fas fa-user"></i></a>
+                <a href="#" aria-label="Carrito de compras"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
     </header>
-    <main></main>
-    <footer></footer>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Cuidado que se siente bien.</h2>
+                <p>Descubre nuestra colección de productos premium para tu rutina diaria.</p>
+                <a href="pages/products.html" class="btn btn-primary">Ver Productos</a>
+            </div>
+        </section>
+
+        <section class="info-boxes">
+            <div class="container">
+                <div class="info-box">
+                    <i class="fas fa-truck"></i>
+                    <h3>Envíos a todo el país</h3>
+                    <p>Recibe tus productos en la puerta de tu casa.</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-gift"></i>
+                    <h3>Envío gratis en Cali</h3>
+                    <p>En compras superiores a $80.000 COP.</p>
+                </div>
+                <div class="info-box">
+                    <i class="fas fa-lock"></i>
+                    <h3>Pagos Seguros</h3>
+                    <p>Utilizamos las mejores plataformas de pago.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <div class="container">
+                <h2>Productos Destacados</h2>
+                <div class="product-grid">
+                    <!-- Producto 1 -->
+                    <div class="product-card" data-category="cuidado-facial">
+                        <a href="pages/product-details.html?product=locion-hidratante">
+                            <img src="https://placehold.co/300x300/20c997/FFFFFF/png" alt="Producto 1">
+                            <h3>Loción Hidratante</h3>
+                            <p class="product-category">Cuidado Facial</p>
+                            <p class="product-price">$90.000</p>
+                        </a>
+                        <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+                    </div>
+                    <!-- Producto 2 -->
+                    <div class="product-card" data-category="cuidado-corporal">
+                        <a href="pages/product-details.html?product=crema-corporal">
+                            <img src="https://placehold.co/300x300/20c997/FFFFFF/png" alt="Producto 2">
+                            <h3>Crema Corporal</h3>
+                            <p class="product-category">Cuidado Corporal</p>
+                            <p class="product-price">$75.000</p>
+                        </a>
+                        <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+                    </div>
+                    <!-- Producto 3 -->
+                    <div class="product-card" data-category="higiene">
+                        <a href="pages/product-details.html?product=desodorante-natural">
+                            <img src="https://placehold.co/300x300/20c997/FFFFFF/png" alt="Producto 3">
+                            <h3>Desodorante Natural</h3>
+                            <p class="product-category">Higiene</p>
+                            <p class="product-price">$45.000</p>
+                        </a>
+                        <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+                    </div>
+                    <!-- Producto 4 -->
+                    <div class="product-card" data-category="cuidado-facial">
+                        <a href="pages/product-details.html?product=serum-rejuvenecedor">
+                            <img src="https://placehold.co/300x300/20c997/FFFFFF/png" alt="Producto 4">
+                            <h3>Sérum Rejuvenecedor</h3>
+                            <p class="product-category">Cuidado Facial</p>
+                            <p class="product-price">$120.000</p>
+                        </a>
+                        <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo-sensacion-64x64.png" alt="Logo Sensación" class="logo-img">
+                        <h4>Sensación</h4>
+                    </a>
+                    <p>Cuidado personal premium para todos.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="pages/products.html">Productos</a></li>
+                        <li><a href="pages/contact.html">Contacto</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sensación. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nuestro script de JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>
