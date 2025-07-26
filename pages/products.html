@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Sensación</title>
+    <meta name="description" content="Explora nuestra gama completa de productos para el cuidado personal.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../style/styles.css">
+    
+    <link rel="icon" href="../images/logo-sensacion.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo-sensacion-64x64.png" alt="Logo Sensación" class="logo-img">
+                <h1>Sensación</h1>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="products.html">Productos</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="#" aria-label="Buscar"><i class="fas fa-search"></i></a>
+                <a href="#" aria-label="Cuenta de usuario"><i class="fas fa-user"></i></a>
+                <a href="#" aria-label="Carrito de compras"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="products-header">
+            <div class="container">
+                <h2>Nuestros Productos</h2>
+                <p>Calidad y cuidado en cada selección.</p>
+            </div>
+        </section>
+
+        <section class="products-page">
+            <div class="container">
+                <aside class="filters">
+                    <h3>Filtrar por Categoría</h3>
+                    <ul>
+                        <li><a href="#" class="active" data-filter="all">Todos</a></li>
+                        <li><a href="#" data-filter="cuidado-facial">Cuidado Facial</a></li>
+                        <li><a href="#" data-filter="cuidado-corporal">Cuidado Corporal</a></li>
+                        <li><a href="#" data-filter="higiene">Higiene</a></li>
+                        <li><a href="#" data-filter="para-hombre">Para Hombre</a></li>
+                        <li><a href="#" data-filter="para-mujer">Para Mujer</a></li>
+                    </ul>
+                </aside>
+                <div class="product-grid-full">
+                    <!-- Fila 1 -->
+                    <div class="product-card" data-category="cuidado-facial">
+                        <a href="product-details.html?product=locion-hidratante">
+                            <img src="https://placehold.co/300x300/20c997/FFFFFF/png" alt="Producto 1">
+                            <h3>Loción Hidratante</h3>
+                            <p class="product-category">Cuidado Facial</p>
+                            <p class="product-price">$90.000</p>
+                        </a>
+                        <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+                    </div>
+                     <div class="product-card" data-category="cuidado-corporal">
+                        <a href="product-details.html?product=crema-corporal">
+                            <img src="https://placehold.co/300x300/20c997/FFFFFF/png" alt="Producto 2">
+                            <h3>Crema Corporal</h3>
+                            <p class="product-category">Cuidado Corporal</p>
+                            <p class="product-price">$75.000</p>
+                        </a>
+                        <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+                    </div>
+                    <div class="product-card" data-category="higiene">
+                        <a href="product-details.html?product=desodorante-natural">
+                            <img src="https://placehold.co/300x300/20c997/FFFFFF/png" alt="Producto 3">
+                            <h3>Desodorante Natural</h3>
+                            <p class="product-category">Higiene</p>
+                            <p class_name="product-price">$45.000</p>
+                        </a>
+                        <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+                    </div>
+                    
+                    <!-- Fila 2 -->
+                    <div class="product-card" data-category="cuidado-facial">
+                        <a href="product-details.html?product=serum-rejuvenecedor">
+                            <img src="https://placehold.co/300x300/20c997/FFFFFF/png" alt="Producto 4">
+                            <h3>Sérum Rejuvenecedor</h3>
+                            <p class="product-category">Cuidado Facial</p>
+                            <p class="product-price">$120.000</p>
+                        </a>
+                        <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+                    </div>
+                    <div class="product-card" data-category="higiene">
+                        <a href="product-details.html?product=gel-de-ducha">
+                            <img src="https://placehold.co/300x300/20c997/FFFFFF/png" alt="Producto 5">
+                            <h3>Gel de Ducha Refrescante</h3>
+                            <p class="product-category">Higiene</p>
+                            <p class="product-price">$60.000</p>
+                        </a>
+                        <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+                    </div>
+                    <div class="product-card" data-category="para-hombre">
+                        <a href="product-details.html?product=crema-de-afeitar">
+                            <img src="https://placehold.co/300x300/20c997/FFFFFF/png" alt="Producto 6">
+                            <h3>Crema de Afeitar</h3>
+                            <p class="product-category">Para Hombre</p>
+                            <p class="product-price">$65.000</p>
+                        </a>
+                        <button class="btn btn-secondary add-to-cart-btn">Añadir al Carrito</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <a href="../index.html" class="logo">
+                        <img src="../images/logo-sensacion-64x64.png" alt="Logo Sensación" class="logo-img">
+                        <h4>Sensación</h4>
+                    </a>
+                    <p>Cuidado personal premium para todos.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="products.html">Productos</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sensación. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
